@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     let titleLabel: UILabel = {
         let Label = UILabel()
         Label.text = "Total Bill"
-        Label.textColor = .black
+        Label.textColor = .blue
 //        Label.font = UIFont(name: "Avenir Next Bold", size: 40)
         Label.translatesAutoresizingMaskIntoConstraints = false
         return Label
