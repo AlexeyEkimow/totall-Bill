@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     let titleLabel: UILabel = {
         let Label = UILabel()
         Label.text = "Total Bill"
-        Label.textColor = .blue
+        Label.textColor = .black
 //        Label.font = UIFont(name: "Avenir Next Bold", size: 40)
         Label.translatesAutoresizingMaskIntoConstraints = false
         return Label
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.2678741813, green: 0.759506464, blue: 0.9603367448, alpha: 1)
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
+//        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -77,17 +77,23 @@ class MainViewController: UIViewController {
         view.addSubview(totalBillView)
         view.addSubview(personsView)
         view.addSubview(calculateButton)
+        calculateButton.titleLabel?.font = UIFont(name: "Avenir Next", size: view.frame.height / 44)
+
         view.addSubview(tipsView)
         
     }
     
     @objc func calculateButtonTapped() {
         guard let totalBill = totalBillView.summTextFieled.text,
-        let totalBillInt = Int(totalBill )else { return }
+        let totalBillInt = Int(totalBill )else {
+            discriptionLabel.text = "Enter totall bill"
+            discriptionLabel.textColor = .red
+            return
+        }
         
         let summ = totalBillInt + totalBillInt * tipsView.tipsCount / 100
         let persons = personsView.counter
-        if persons == 0 {
+        if persons < 2 {
             discriptionLabel.text = "Enter persons count"
             discriptionLabel.textColor = .red
         } else {
@@ -135,7 +141,7 @@ extension MainViewController {
             calculateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             calculateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            calculateButton.heightAnchor.constraint(equalToConstant: 60),
+            calculateButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.06),
             
             tipsView.topAnchor.constraint(equalTo: personsView.bottomAnchor, constant: 10),
             tipsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

@@ -51,7 +51,7 @@ class PersonsView: UIView {
     
     let counterLabel: UILabel = {
         let Label = UILabel()
-        Label.text = "0"
+        Label.text = "2"
         Label.textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
         Label.textAlignment = .center
         Label.font = UIFont(name: "Avenir Next", size: 48)
@@ -59,7 +59,7 @@ class PersonsView: UIView {
         return Label
     }()
     
-    var counter = 0
+    var counter = 2
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,7 +90,7 @@ class PersonsView: UIView {
         counter -= 1
         counterLabel.text = "\(counter)"
         
-        if counter == 0 {
+        if counter <= 2 {
             minusButton.isEnabled = false
         }
         

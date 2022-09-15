@@ -44,8 +44,8 @@ class TotalBillView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        titleLabel.font = UIFont(name: "Avenir Next", size: frame.width / 26.7)
-        summTextFieled.font = UIFont(name: "Avenir Next Bold", size: frame.height / 2.6)
+        titleLabel.font = UIFont(name: "Avenir Next", size: frame.width / 26.6)
+        summTextFieled.font = UIFont(name: "Avenir Next Bold", size: frame.height / 2.2)
         
     }
     func setupView() {
